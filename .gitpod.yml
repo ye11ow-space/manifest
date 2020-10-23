@@ -1,6 +1,7 @@
 tasks:
   - command: |
-      echo -e $GITHUB_GPG_KEY > key.pem && gpg --import -a key.pem && rm -f key.pem
+      export GPG_TTY=$(tty)
+      echo -e $GITHUB_GPG_KEY > key.pem && gpg --import --batch --trust-model always key.pem && rm -f key.pem
       git config --global user.name $GITHUB_PUBLIC_NAME
       git config --global user.email $GITHUB_PUBLIC_EMAIL
       git config --global user.signingkey $GITHUB_GPG_KEY_FP
