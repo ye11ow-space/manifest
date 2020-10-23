@@ -5,5 +5,13 @@ Setup development environment in [Gitpod](https://gitpod.io) requires the follow
 
 * $GITHUB_PUBLIC_NAME
 * $GITHUB_PUBLIC_NAME
+* $GITHUB_GPG_KEY 
+* $GITHUB_GPG_KEY_FP
+
+In order to format key as an environment variable, export your private key with the following command:
+
+```shell
+$ gpg -a --export-secret-keys <fingerprint id> | cat -e | sed 's/\$/\\n/g'
+```
 
 To contribute with de manifest, follow [CONTRIBUTING.md](CONTRIBUTING.md) directions
